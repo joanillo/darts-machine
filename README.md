@@ -7,6 +7,6 @@ The idea is to build a cabinet with a dartboard (steel darts) and a scoreboard (
   <li>blog (Catalan & Spanish): http://www.joanillo.org/?cat=45&lang=es</li>
   <li>www.retroplaneta.com</li>
 </ul>
-This project is under construction and discussion. There is not functional at the moment.
+This project is under construction and discussion. It is not functional at this moment.
 
-<strong>v0.0.8</strong>: runs under Linux and console. No OpenCV and graphics at this moment. This version implements all the logics of the games (301, 501, Cricket, Count Up, Round the Clock, Halve It), you can choose a game, number of user, and is possible to see the correct  scoring until the end of a game. 
+<strong>v0.0.8</strong>: runs under Linux and console. No OpenCV and graphics (SDL) at this moment. This version implements all the logics of the games (301, 501, Cricket, Count Up, Round the Clock, Halve It), you can choose a game, number of users, and it is possible to see the correct  scoring until the end of a game. 
