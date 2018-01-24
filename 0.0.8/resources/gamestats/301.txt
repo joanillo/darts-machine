@@ -1,0 +1,19 @@
+#num_partides_totals,num_partides_finalitzades, ronda record
+#Donald Duck
+#Mickey Mouse
+#Coyote
+#Correcaminos
+#Piolin
+#Jerry
+#Total
+35,25,10
+13,14,15
+16,17,18
+18,19,20
+21,22,23
+23,24,25
+25,26,27
+
+
+
+

@@ -1,0 +1,3 @@
+Regles del Count Up
+----------------------
+Són 8 rondes de 3 tirades. Es van acumulant els punts. Guanya qui té més punts.

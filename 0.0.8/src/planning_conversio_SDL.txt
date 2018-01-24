@@ -1,0 +1,25 @@
+per compilar:
+// g++ -DRPI -o joanillo_arcade_frontend joanillo_arcade_frontend-1.0.17.cpp `sdl-config  --cflags --libs` -lSDL_image -lSDL_ttf
+
+#ifdef LAPTOP
+	// Configuració laptop
+	#define PAGINACIO 12
+	#define LLISTA_ROMS_X 50
+	...
+#elif RPI_SAMSUNG //tele per fer proves
+	// Configuració RPi a la tele per fer proves
+	#define PAGINACIO 14
+	#define LLISTA_ROMS_X 20
+	...
+#else
+	// Configuració RPi (Bartop)
+	#define PAGINACIO 23
+	#define LLISTA_ROMS_X 20
+	...
+#endif
+
+1. Definició de variables SDL
+2. Creació i destrucció dels objectes principals (de moment no veiem res)
+3. Creació i destrucció de les superfícies, a mida que es van utilitzant (de moment no veiem res)
+4. Gestió de les tecles. Podem detectar les tecles. Podem sortir amb ESC
+5. ...

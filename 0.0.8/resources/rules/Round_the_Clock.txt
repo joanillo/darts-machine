@@ -1,0 +1,3 @@
+Regles del Round the Clock
+----------------------------------------
+The aim of the game is to hit every single number on the board, plus the bulls-eye, before everyone else in order to win. You start from number 1, then number 2, until you hit number 20 and bulls-eye (single or double). You cannot move onto another number until you have hit the number you are aiming for.
