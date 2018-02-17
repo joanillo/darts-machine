@@ -10,3 +10,4 @@ The idea is to build a cabinet with a dartboard (steel darts) and a scoreboard (
 This project is under construction and discussion. It is not functional at this moment.
 
 <strong>v0.0.8</strong>: runs under Linux and console. No OpenCV and graphics (SDL) at this moment. This version implements all the logics of the games (301, 501, Cricket, Count Up, Round the Clock, Halve It), you can choose a game, number of users, and it is possible to see the correct  scoring until the end of a game. 
+<strong>v0.0.11</strong>: Same as v0.0.8. Several improvemets, specially DELETE the last dart scoring. This is necessary because I'm already working on detecting darts with OpenCV, and I see that is very difficult to have 100% of accuracy in darts detection.
