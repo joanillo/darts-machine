@@ -1,0 +1,13 @@
+#num_partides_totals,num_partides_finalitzades, ronda record
+#301
+#501
+#Cricket
+#Round the Clock
+#Total
+35,25,10
+13,14,15
+16,17,18
+18,19,20
+21,22,23
+
+

@@ -1,0 +1,10 @@
+Regles del 301 Double Out
+-------------------------
+Els jugadors comencen amb 301 (o 501, o 701) i han d'anar restant punts fins tenir exactament zero punts.
+
+Si et passes (Busts), passa el torn. Puntuen tots els números. El joc es pot complicar amb diferents modalitats:
+
+301 Master Out: s'ha d'arribar a zero amb un doble o triple.
+301 Double Out: s'ha d'arribar a zero amb un doble.
+301 Master In: s'ha d'obrir amb un doble o triple.
+301 Double In: s'ha d'obrir amb un doble.
