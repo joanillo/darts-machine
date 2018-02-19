@@ -471,38 +471,40 @@ if (diff > wait_time) {
             } else if (optionName == "Modify score") {
                 std::cout << "MODIFY SCORE" << std::endl;
 
-            std::cout << "tornJugador: " << tornJugadorPrev << " " << tornJugador << std::endl;
-            std::cout << "numRonda: " << numRondaPrev << " " << numRonda << std::endl;
+                //gestió dels previs
+                if (tornJugadorPrev == tornJugador && numRondaPrev == numRonda) {
 
+                    //comuns
+                    numDart = numDartPrev;
+                    puntsJugadorDart[tornJugador-1][numDart-1] = -1;
+                    strPuntsDiana = "";
+                    puntsDiana = 0;
+                    gameOver = gameOverPrev;
+                    guanyador = guanyadorPrev;
 
-if (tornJugadorPrev == tornJugador && numRondaPrev == numRonda) {
+                    //301, Cricket
+                    puntsJugadorTotal[tornJugador-1] = puntsJugadorTotalPrev[tornJugador-1];
+                    //Round the Clock
+                    puntsJugadorRoundTheClock[tornJugador-1] = puntsJugadorRoundTheClockPrev[tornJugador-1];
 
-    //comuns
-    numDart = numDartPrev;
-    puntsJugadorDart[tornJugador-1][numDart-1] = -1;
-    strPuntsDiana = "";
-    puntsDiana = 0;
-    gameOver = gameOverPrev;
-    guanyador = guanyadorPrev;
+                    //Cricket
+                    JugadorCricketClosed[tornJugador-1] = JugadorCricketClosedPrev[tornJugador-1];
+                    for (unsigned int j=1;j<=sizeof(cricketTargets)/sizeof(cricketTargets[0]);j++) { //recorrem els targets del Cricket
+                        puntsJugadorCricket[tornJugador-1][j-1] = puntsJugadorCricketPrev[tornJugador-1][j-1];
+                        puntsJugadorCricketSigne[tornJugador-1][j-1] = puntsJugadorCricketSignePrev[tornJugador-1][j-1];
+                    }
+                    //Count Up
+                    for (unsigned int j=1;j<=sizeof(puntsJugadorRonda[0])/sizeof(puntsJugadorRonda[0][0]);j++) { //recorrem els targets del Count Up
+                        puntsJugadorRonda[tornJugador-1][j-1] = puntsJugadorRondaPrev[tornJugador-1][j-1];
+                    }
 
-    //301, Cricket
-    puntsJugadorTotal[tornJugador-1] = puntsJugadorTotalPrev[tornJugador-1];
-    //Round the Clock
-    puntsJugadorRoundTheClock[tornJugador-1] = puntsJugadorRoundTheClockPrev[tornJugador-1];
-    //Cricket
-    JugadorCricketClosed[tornJugador-1] = JugadorCricketClosedPrev[tornJugador-1];
-    for (unsigned int j=1;j<=sizeof(cricketTargets)/sizeof(cricketTargets[0]);j++) { //recorrem els targets del Cricket
-        std::cout << puntsJugadorCricketPrev[tornJugador-1][j-1] << std::endl;
-        puntsJugadorCricket[tornJugador-1][j-1] = puntsJugadorCricketPrev[tornJugador-1][j-1];
-        puntsJugadorCricketSigne[tornJugador-1][j-1] = puntsJugadorCricketSignePrev[tornJugador-1][j-1];
-    }
+                    //Halve It
+                    for (unsigned int j=1;j<=sizeof(puntsJugadorHalveIt[0])/sizeof(puntsJugadorHalveIt[0][0]);j++) { //recorrem els targets del Halve It
+                        puntsJugadorHalveIt[tornJugador-1][j-1] = puntsJugadorHalveItPrev[tornJugador-1][j-1];
+                    }
 
-    //Count Up
-
-    //Halve It
-
-    App::updateScreenplay();
-}
+                    App::updateScreenplay();
+                }
 
             } 
 
@@ -1032,8 +1034,8 @@ void App::updateScreenplay_Halve_It() {
         for (unsigned int j=1;j<=sizeof(halveitTargets)/sizeof(halveitTargets[0]);j++) { //recorrem els targets del Cricket
             //puntsJugadorRonda
             scr_ele = pantalla.getScreenElementfromName("txt_puntsHalveIt" + int_to_string(j) + "Jugador" + int_to_string(i));
-            //std::cout << scr_ele.getName() << ": " << scr_ele.getName2() << " - " << puntsJugadorRonda[i-1][j-1] << std::endl;
-            std::cout << scr_ele.getName() << ": " << scr_ele.getName2() << " - " << puntsJugadorHalveIt[i-1][j-1] << std::endl;
+            //std::cout << scr_ele.getName() << " (" << scr_ele.getName2() << "): " << puntsJugadorRonda[i-1][j-1] << std::endl;
+            std::cout << scr_ele.getName() << " (" << scr_ele.getName2() << "): " << puntsJugadorHalveIt[i-1][j-1] << std::endl;
         }
 
         //puntsJugadorxTotal
@@ -1135,9 +1137,11 @@ void cleanVariables() {
         puntsJugadorTotalPrev[i] = 0;
     }
 
+    //Count Up
     for (unsigned int i=0;i<sizeof(puntsJugadorRonda[0])/sizeof(puntsJugadorRonda[0][0]);i++) { //num_rondes
         for (unsigned int j=0;j<gameNumPlayers;j++) { //num_jugadors
             puntsJugadorRonda[j][i] = 0;
+            puntsJugadorRondaPrev[j][i] = 0;
         }
     }
 
@@ -1304,12 +1308,21 @@ void App::logica_301501() {
 
 void App::logica_Count_Up() {
     puntsJugadorDart[tornJugador-1][numDart-1] = puntsDiana;
+
+    for (unsigned int j=1;j<=sizeof(puntsJugadorRonda[0])/sizeof(puntsJugadorRonda[0][0]);j++) { //recorrem els targets del Cricket
+        puntsJugadorRondaPrev[tornJugador-1][j-1] = puntsJugadorRonda[tornJugador-1][j-1];
+    }
+
     puntsJugadorRonda[tornJugador-1][numRonda-1] += puntsDiana;
+    puntsJugadorTotalPrev[tornJugador-1] = puntsJugadorTotal[tornJugador-1];
     puntsJugadorTotal[tornJugador-1] += puntsDiana;
 
-    App::updateScreenplay_Count_Up();
-
+    numDartPrev = numDart;
     numDart++;
+    tornJugadorPrev = tornJugador;
+    numRondaPrev = numRonda;
+
+    App::updateScreenplay_Count_Up();
 }
 
 // =============================================================================================
@@ -1451,6 +1464,11 @@ void App::logica_Halve_It() {
     unsigned int puntsTargetRonda = 0;
 
     puntsJugadorDart[tornJugador-1][numDart-1] = puntsDiana;
+    puntsJugadorTotalPrev[tornJugador-1] = puntsJugadorTotal[tornJugador-1];
+
+    for (unsigned int j=1;j<=sizeof(puntsJugadorHalveIt[0])/sizeof(puntsJugadorHalveIt[0][0]);j++) { //recorrem els targets del Halve It
+        puntsJugadorHalveItPrev[tornJugador-1][j-1] = puntsJugadorHalveIt[tornJugador-1][j-1];
+    }
 
     puntsTargetRonda = (unsigned int)atoi(halveitTargets[numRonda-1].c_str());
     if (puntsTargetRonda == puntsDiana || (puntsTargetRonda*2 == puntsDiana && isDianaDouble==true) || (puntsTargetRonda*3 == puntsDiana && isDianaTreble==true)) { //encertem target
@@ -1463,8 +1481,12 @@ void App::logica_Halve_It() {
         }
     }
 
-    App::updateScreenplay();
+    numDartPrev = numDart;
     numDart++;
+    tornJugadorPrev = tornJugador;
+    numRondaPrev = numRonda;
+    App::updateScreenplay();
+
 }
 
 // =============================================================================================
@@ -1482,7 +1504,7 @@ void App::changePlayerTurn() {
         tornJugador++;
         if (tornJugador <= gameNumPlayers) {
             std::cout << "WAIT..." << std::endl;
-            sleep(1); //espera per veure els resultats, abans d'anar al següent jugador (quant ingui un botó ja no caldrà)
+            sleep(1); //espera per veure els resultats, abans d'anar al següent jugador (quant tingui un botó ja no caldrà)
             isBusts = false;
         } else {
 
@@ -1492,7 +1514,7 @@ void App::changePlayerTurn() {
             tornJugador = 1;
             numRonda++;
             std::cout << "WAIT..." << std::endl;
-            sleep(1); //espera per veure els resultats, abans d'anar a la següent ronda (quant ingui un botó ja no caldrà)
+            sleep(1); //espera per veure els resultats, abans d'anar a la següent ronda (quant tingui un botó ja no caldrà)
             puntsDiana = 0;
             strPuntsDiana = "";
 

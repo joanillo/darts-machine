@@ -57,6 +57,8 @@ std::string roundtheclockTargets[22] = {"1","2","3","4","5","6","7","8","9","10"
 
 int puntsJugadorHalveIt[4][7] = {{-1,-1,-1,-1,-1,-1,-1},{-1,-1,-1,-1,-1,-1,-1},{-1,-1,-1,-1,-1,-1,-1},{-1,-1,-1,-1,-1,-1,-1}};; //Halve It. -1: valor inicial; 0: target no aconseguit; 1: target aconseguit
 std::string halveitTargets[7] = {"20","4","9","10","8","17","19"}; //Halve It
+//int puntsJugadorHalveIt[4][2] = {{-1,-1},{-1,-1},{-1,-1},{-1,-1}};; //Halve It reduït. -1: valor inicial; 0: target no aconseguit; 1: target aconseguit
+//std::string halveitTargets[2] = {"20","4"}; //Halve It reduït
 
 //Modify Score
 unsigned int puntsJugadorTotalPrev[4] = {0,0,0,0}; //genèric
@@ -65,13 +67,16 @@ unsigned int tornJugadorPrev = 1; //genèric
 unsigned int numRondaPrev = 1; //genèric
 int gameOverPrev = false;
 int guanyadorPrev = -1; //genèric
-unsigned int puntsJugadorRoundTheClockPrev[4] = {0, 0, 0, 0}; //RoundTheClock
+unsigned int puntsGuanyadorPrev = 0; //genèric
 
+unsigned int puntsJugadorRoundTheClockPrev[4] = {0, 0, 0, 0}; //RoundTheClock
 unsigned int puntsJugadorCricketPrev[4][7] = {{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0}};; //Cricket
 std::string puntsJugadorCricketSignePrev[4][7] = {{"","","","","","",""},{"","","","","","",""},{"","","","","","",""},{"","","","","","",""}};; //Cricket
 //unsigned int puntsJugadorCricketPrev[4][3] = {{0,0,0},{0,0,0},{0,0,0},{0,0,0}};; //Cricket
 //std::string puntsJugadorCricketSignePrev[4][3] = {{"","",""},{"","",""},{"","",""},{"","",""}};; //Cricket
 unsigned int JugadorCricketClosedPrev[4] = {false, false, false, false}; //Cricket
-
-unsigned int puntsGuanyadorPrev = 0; //genèric
-
+unsigned int puntsJugadorRondaPrev[4][8] = {{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0}}; //Count Up
+//unsigned int puntsJugadorRondaPrev[4][2] = {{0,0},{0,0},{0,0},{0,0}}; //Count Up. 2 rondes reduït
+//unsigned int puntsJugadorRondaPrev[4][1] = {{0},{0},{0},{0}}; //Count Up. 1 ronda reduït
+int puntsJugadorHalveItPrev[4][7] = {{-1,-1,-1,-1,-1,-1,-1},{-1,-1,-1,-1,-1,-1,-1},{-1,-1,-1,-1,-1,-1,-1},{-1,-1,-1,-1,-1,-1,-1}};; //Halve It. -1: valor inicial; 0: target no aconseguit; 1: target aconseguit
+//int puntsJugadorHalveItPrev[4][2] = {{-1,-1},{-1,-1},{-1,-1},{-1,-1}};; //Halve It reduït. -1: valor inicial; 0: target no aconseguit; 1: target aconseguit

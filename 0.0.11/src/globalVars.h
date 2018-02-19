@@ -55,6 +55,8 @@ extern std::string roundtheclockTargets[22]; //RoundTheClock
 //extern std::string roundtheclockTargets[5]; //RoundTheClock reduït
 extern int puntsJugadorHalveIt[4][7]; //Halve It
 extern std::string halveitTargets[7]; //Halve It
+//extern int puntsJugadorHalveIt[4][2]; //Halve It reduït
+//extern std::string halveitTargets[2]; //Halve It reduït
 
 //Modify Score
 extern unsigned int puntsJugadorTotalPrev[4]; //genèric
@@ -63,15 +65,19 @@ extern unsigned int tornJugadorPrev; //genèric
 extern unsigned int numRondaPrev; //genèric
 extern int gameOverPrev;
 extern int guanyadorPrev; //genèric
-extern unsigned int puntsJugadorRoundTheClockPrev[4]; //RoundTheClock
+extern unsigned int puntsGuanyadorPrev; //genèric
 
+extern unsigned int puntsJugadorRoundTheClockPrev[4]; //RoundTheClock
 extern unsigned int puntsJugadorCricketPrev[4][7]; //Cricket
 extern std::string puntsJugadorCricketSignePrev[4][7]; //Cricket
 //extern unsigned int puntsJugadorCricketPrev[4][3]; //Cricket reduït
 //extern std::string puntsJugadorCricketSignePrev[4][3]; //Cricket reduït
 extern unsigned int JugadorCricketClosedPrev[4]; //Cricket
-
-extern unsigned int puntsGuanyadorPrev; //genèric
+extern unsigned int puntsJugadorRondaPrev[4][8]; //Count Up
+//extern unsigned int puntsJugadorRondaPrev[4][2]; //Count Up, 2 rondes reduït
+//extern unsigned int puntsJugadorRondaPrev[4][1]; //Count Up, 1 ronda reduït
+extern int puntsJugadorHalveItPrev[4][7]; //Halve It
+//extern int puntsJugadorHalveItPrev[4][2]; //Halve It reduït
 
 #endif /* GLOBALVARS_H */
 

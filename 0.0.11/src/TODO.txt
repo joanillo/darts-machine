@@ -124,12 +124,12 @@ TODO Modificació del score
 OK Modificació Round the Clock. Afegim un nou element al final de la matriu roundtheclockTargets[]
 OK Modificació Round the Clock -> escurçar el número d'elements per fer proves: roundtheclockTargets[5]
 OK Modificacions en la lògica del Cricket
-FENT Desfer i tornar a la posició anterior:
+OK Desfer i tornar a la posició anterior:
     OK 301
     OK Round the clock
     OK Cricket
-    TODO Count Up
-    TODO Halve It
+    OK Count Up
+    OK Halve It
 
 ========================
 
