@@ -14,3 +14,5 @@ This project is under construction and discussion. It is not functional at this 
 <strong>v0.0.11</strong>: Same as v0.0.8. Several improvemets, specially <strong>DELETE</strong> the last dart scoring. This is necessary because I'm already working on detecting darts with OpenCV, and I see that is very difficult to have 100% of accuracy in darts detection.
 
 <strong>v0.0.12</strong>: This is the last version before merging with the subsytem of detection darts. In this version we fixed several bugs and added several improvements. When we delete the last score, a collection of the nearest scores are proposed. I'm sorry but at this moment variable names, user interface (console) and comments are in Catalan,
+
+<img src="http://www.joanillo.org/wp-content/uploads/2018/02/darts-machine-00121.png" />
