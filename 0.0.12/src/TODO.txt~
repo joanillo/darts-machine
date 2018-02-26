@@ -1,0 +1,138 @@
+0.0.3
+------------
+OK he d'assignar una partida (Game) a l'App actual
+OK he d'assignar els jugadors a la partida (vector)
+OK que no es puguin repetir les assignacions
+
+OK mètode per retornar informació de la partida i jugadors.
+
+OK gestió Exit
+OK gestió Shutdown
+
+0.0.4
+------------
+OK en el cin que no es vegi el que escric
+OK En el Menú Principal (on escullo els jocs) també hi ha l'element Info
+OK A Info puc accedir:
+	-Regles dels jocs
+	-stats dels jocs (quin usuari ho ha fet millor, %, num de vegades jugats, ronda récord,...)
+	-stats dels jugadors. Accedint a un jugador, puc saber quins són els resultats i %s en cadascun dels jocs.
+(ho he fet en estat preliminar)
+OK He fet molta feina. Fa tota la gestió d'elegir el joc, elegir els jugadors (de 1 a 4), i fer les rondes successives de tirs de 3 dards, acumulant la puntuació.
+	Tot amb vectors i arrays.
+
+0.0.5
+------------
+OK afegeixo la referència a les imatges dels avatars
+De la mateixa manera que agafo la llista d'avatars d'un fitxer, també agafo la llista de jocs d'un fitxer.
+OK Netejar les variables quan sortim d'un joc
+Ok Netejar les variables quan acabem un joc
+Carregar la info correcta de les estadístiquesApp::App(std::string name) {. Carregar les pantalles a partir dels fitxers
+OK Implementar el joc 301/501
+OK Els noms dels jugadors els tinc en un fitxer, de manera que puc editar-lo fàcilment.
+OK En els fitxers també es guardaran totes les estadístiques
+
+0.0.6
+------------
+OK gameOver -> gameExit
+OK la variable gameOver ara sí que significarà que s'ha acabat la partida.
+OK. Implementar el joc Count Up
+Implementar el joc 301/501 -> començat
+
+0.0.7
+---------------
+OK Estic creant totes les pantalles dels jocs (en el constructor de App, App.cpp línia 35). Només hauria de crear les pantalles que necessito. A part de les pantalles de menú,
+no he de crear totes les pantalles de joc. Creo la pantalla (i els seus elements) quan vull jugar a un joc.
+OK De la mateixa manera, si creo la pantalla quan vagi a jugar al joc, aleshores creo la pantalla amb el número de jugador adequat, i així m'estalvio crear elements.
+OK Actualment, a les pantalles estic fent un for (int i=1;i<=4;i++), quatriplico els elements pensant que hi haurà 4 jugadors. -> Arreglat
+OK Implementar el joc Count Up
+OK Implementar el joc 301/501
+OK Implementar el joc 301D/501D
+OK Arreglar 501: quan faig BUSTS, s'ha de tornar a posar la puntuació original de quan començava la ronda. Nova variable global.
+OK Implementar el joc Cricket
+OK Implementar el joc Round the Clock
+OK Implementar el joc Half It
+OK canviem Half It per Halve It
+OK txt_textFinalPartidaGuanyador -> de fet és txt_Info
+OK puntsJugadorDart[4][3] -> passa de unsigned int a int, perquè el valor per defecte és -1, que significa que no es mostra el valor a la pantalla.
+
+0.0.8
+---------------
+OK Necessito que introduir informació pel teclat no interrompi el flux del programa. A Windows i conio.h existeix la funció kbhit(). Busco una alternativa a Linux. Implemento la solució que es mostra a proves/kbhit_5.cpp
+
+No interrompre el flux del programa és un pas necessari per tal de simular una webcam que està funcionant continuament i que agafa frames cada 5 segons (per ex). Una altra possibilitat seria utilitzar fils (threads), però de moment no cal.
+
+OK Elimino tots els play_, i el que importa és la logica_
+OK Reordeno el codi i creo les funcions logica_:
+OK logica_301501 ()
+OK logica_Count_Up()
+OK logica_Cricket()
+OK logica_Round_the_Clock()
+OK logica_Halve_It()
+
+0.0.9
+---------------
+OK afegir Retroplaneta.com
+argument -c (calibrate). Comencem a fer els algorismes de calibració, però sense openCV i webcams.
+
+#include <ctime> -> no cal!
+
+línia 439:
+double wait_time = 3;            
+clock_t start;
+double diff;
+start = clock(); 
+
+            strPuntsDiana = "";
+            int a = 0;
+            int b = 0;
+            while(true) { //escollim una diana
+                if (kbhit()) {
+                    a = getchar();
+                    if (a==10 && b==1) { //10: ENTER
+                        break;
+                    } else {
+                        strPuntsDiana += a;
+                        b=1;
+                    }
+                }
+
+diff = ( std::clock() - start ) / (double)CLOCKS_PER_SEC;
+if (diff > wait_time) {
+    std::cout << "captura de frame" << std::endl;
+    start = clock(); 
+}
+
+0.0.10
+---------------
+He acumulat bastanta experiència amb l'aplicatiu de cal.libració (vaig per la versió callibration/0.2.5), i per tant he d'eliminar l'opció que havia introduït de calibració (-c) en aquest programa.
+Ara tinc clar que  sí o sí necessitaré una interfície per canviar el score en cas de mala detecció, doncs no puc assegurar el 100%
+Com que l'usuari ha de recollir els dards hi haurà una opció en la interfície que serà 'canvi torn'. Al final de tot això segurament serà un botó, però de moment és una de les opcions.
+
+OK Com que ara ja m'acosto a una versió que es podrà jugar, he d'eliminar l'opció 'Introduir puntuació'. Però encara he d'introduir la puntuació manualment. Distingiré entre el prefix 's' (score) i 'u' (user), per saber si el que estic introduint és una nova puntuació, o bé una opció de la interfície.
+
+TODO Modificació del score
+
+    //en el Halve It i Count Up, el joc s'acaba quan s'acaben les rondes (i els torns), i guanya qui té més punts.
+    //en el Cricket per acabar la partida hem d'esperar que s'acabi el torn.
+    //en el 301 i Round the clock la partida s'acaba amb el primer que aconsegueix l'objectiu (no cal acabar la ronda)
+
+========================
+
+
+
+(Notes)
+-gestió dreceres amb argument en línia de comandes
+-destrucció d'elements
+-Controlar la memòria amb top
+
+
+
+./recreativa_dards --calibrate
+App.carregarPantalles() -> es van mostrant totes les pantalles, per veure si els elements estan ben posicionats.
+
+jugador: atributs foto i color. La foto estarà també a resource/
+
+cada jugador té un handicap o PPD. PPD indica la mitjana de punts per dard. El valor varia entre 0 i 60 punts per dard. Si volem jugar amb un altre jugador de diferent nivell és recomanable saber el PPD.
+
+

@@ -1,0 +1,6 @@
+Regles del Cricket
+----------------------
+S'han de tancar els números 20, 19, 18, 17, 16, 15 i Bull.
+Tancar significar marcar amb 3 simples; 1 simple i un doble; o bé un triple.
+Un cop tancat, es comencen a comptar els punts quan tornem a marcar sobre el número.
+El guanyador és el primer que tanca tots els números i té més punts (tancar tots els números no significa tenir més punts).

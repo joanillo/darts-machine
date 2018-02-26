@@ -1,0 +1,19 @@
+codi secret
+
+arrenca l'aplicació
+-> nova App
+
+passem per diferents pantalles
+1. Pantalla ChooseGame
+2. Pantalla NumPlayers
+3. Pantalla ChooseAvatar
+
+4. Ja entrem al Game (per ex, '301')
+Dins el Game, tenim diferents pantalles
+Cada pantalla té un array d'elements
+
+Quan estem dins un Game, podem sortir
+
+En qualsevol moment, podem fer Shutdown
+
+
