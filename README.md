@@ -15,4 +15,4 @@ This project is under construction and discussion. It is not functional at this 
 
 <strong>v0.0.12</strong>: This is the last version before merging with the subsytem of detection darts. In this version we fixed several bugs and added several improvements. When we delete the last score, a collection of the nearest scores are proposed. I'm sorry but at this moment variable names, user interface (console) and comments are in Catalan,
 
-<img src="http://www.joanillo.org/wp-content/uploads/2018/02/darts-machine-00121.png" />
+<img src="http://www.joanillo.org/wp-content/uploads/2018/02/darts-machine-00121.png" width="200" />
